@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Офлайн-игры для компании</title>
+  <script>
+    document.documentElement.dataset.theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Офлайн-игры">
+      <span class="brand-mark">🎲</span>
+      <span>Игры на вечер</span>
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#games">Каталог</a>
+      <a href="#picker">Рандомайзер</a>
+      <a href="#tips">Настрой</a>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" title="Переключить тему">
+      <span aria-hidden="true">☾</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-art" aria-hidden="true">
+        <div class="table">
+          <span class="token token-a">?</span>
+          <span class="token token-b">5</span>
+          <span class="token token-c">!</span>
+          <span class="card card-a">Крокодил</span>
+          <span class="card card-b">Мафия</span>
+          <span class="card card-c">Шляпа</span>
+          <span class="dice">⚄</span>
+        </div>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">Для кухни, дачи, офиса и внезапных посиделок</p>
+        <h1 id="page-title">Подберите игру для компании за минуту</h1>
+        <p class="lead">Смотрите, во что можно сыграть офлайн, сколько людей нужно, какой будет градус смеха и насколько неловко станет самым серьезным гостям.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#games">Выбрать игру</a>
+          <button class="button ghost" id="heroRandom" type="button">Мне повезет</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="controls" id="games" aria-label="Фильтры игр">
+      <div class="search-wrap">
+        <label for="search">Поиск</label>
+        <input id="search" type="search" placeholder="Крокодил, слова, детектив..." autocomplete="off">
+      </div>
+      <div class="filter-group" aria-label="Размер компании">
+        <span>Компания</span>
+        <div class="segmented" data-filter="players" data-default="all">
+          <button class="active" type="button" data-value="all">Любая</button>
+          <button type="button" data-value="small">3-5</button>
+          <button type="button" data-value="medium">6-9</button>
+          <button type="button" data-value="large">10+</button>
+        </div>
+      </div>
+      <div class="filter-group" aria-label="Инвентарь">
+        <span>Инвентарь</span>
+        <div class="segmented" data-filter="props" data-default="all">
+          <button class="active" type="button" data-value="all">Любой</button>
+          <button type="button" data-value="none">Без всего</button>
+          <button type="button" data-value="paper">Бумага</button>
+          <button type="button" data-value="phone">Телефон</button>
+        </div>
+      </div>
+      <div class="sort-wrap">
+        <label for="sortBy">Сортировка</label>
+        <select id="sortBy">
+          <option value="none">По умолчанию</option>
+          <option value="fun">Уровень веселья</option>
+          <option value="chaos">Шкала хаоса</option>
+          <option value="difficulty">Сложность</option>
+          <option value="awkward">Неловкометр</option>
+        </select>
+      </div>
+      <div class="filter-group" aria-label="Направление сортировки">
+        <span>Порядок</span>
+        <div class="segmented" data-filter="sortDir" data-default="desc">
+          <button class="active" type="button" data-value="desc">9 → 1</button>
+          <button type="button" data-value="asc">1 → 9</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary" aria-live="polite">
+      <div>
+        <strong id="resultCount">0 игр</strong>
+        <span id="resultMood">готовы к запуску</span>
+      </div>
+      <button class="mini-button" id="resetFilters" type="button">Сбросить</button>
+    </section>
+
+    <section class="game-grid" id="gameGrid" aria-label="Список игр"></section>
+
+    <section class="picker" id="picker" aria-labelledby="picker-title">
+      <div>
+        <p class="eyebrow">Когда спор затянулся</p>
+        <h2 id="picker-title">Рандомайзер решает без обид</h2>
+      </div>
+      <div class="pick-box">
+        <div id="pickName">Нажмите кнопку</div>
+        <button class="button primary" id="randomGame" type="button">Выдать игру</button>
+      </div>
+    </section>
+
+    <section class="tips" id="tips" aria-label="Быстрые настройки вечера">
+      <article>
+        <span>🔥</span>
+        <h3>Разогрев</h3>
+        <p>Начните с игры без выбывания, чтобы люди быстрее перестали стесняться.</p>
+      </article>
+      <article>
+        <span>🧃</span>
+        <h3>Перерыв</h3>
+        <p>После шумной игры поставьте короткий спокойный раунд, иначе стол начнет жить отдельно.</p>
+      </article>
+      <article>
+        <span>🏆</span>
+        <h3>Финал</h3>
+        <p>Заканчивайте на пике: одна быстрая игра с понятным победителем работает лучше марафона.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
