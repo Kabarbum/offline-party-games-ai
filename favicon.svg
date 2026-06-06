@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Игры на вечер">
+  <rect width="64" height="64" rx="14" fill="#111816"/>
+  <rect x="9" y="18" width="24" height="31" rx="5" fill="#ffd166" transform="rotate(-10 21 33.5)"/>
+  <rect x="31" y="15" width="24" height="31" rx="5" fill="#ff7a67" transform="rotate(12 43 30.5)"/>
+  <rect x="17" y="21" width="30" height="30" rx="7" fill="#9ee7c8"/>
+  <circle cx="26" cy="30" r="3" fill="#111816"/>
+  <circle cx="38" cy="30" r="3" fill="#111816"/>
+  <circle cx="32" cy="36" r="3" fill="#111816"/>
+  <circle cx="26" cy="42" r="3" fill="#111816"/>
+  <circle cx="38" cy="42" r="3" fill="#111816"/>
+</svg>
